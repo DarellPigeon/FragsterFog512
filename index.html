@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="icon" type="image/png" href="fragster.png">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FragsterFog512 the chatbot</title>
+</head>
+<body>
+    <h2>FragsterFog512</h2>
+    <input type="text" id="userInput" placeholder="Type something..." autofocus>
+    <button onclick="respond()">Send</button>
+    <div id="chatBox"></div>
+
+    <script>
+        function getRandomResponse() {
+            // Define a list of random words
+            const words = [
+                "press", "rant", "watching", "color", "turtles",
+                "understand", "can't", "weapon", "dancing", "feet",
+                "happiness", "yo", "don't", "claim", "quantum",
+                "i", "flying", "potato", "feel", "brain", "dance",
+                "wizard", "want", "spoon", "fish", "laughing", "think", "post",
+				"steam", "guess", "sigh", "tank", "roof", "$24.19", "forge",
+				"sword", "drive", "gun", "load", "ammo", "not", "enough",
+				"wtf", "bro", "why", "?", "!!!", "bruh", "haha", "lol", "no",
+				"fleet", "raid", "smart", "print:", "print", "north", "east",
+				"south", "west", "god", "nah", "quit", "rage", "you", "bald",
+				"mine", "scrap", "add", "one", "more", "go", "get", "sh**",
+				"frick", "f**k", "health", "low", "shot", "launch", "air",
+				"okay", "ok", "fine", "why", "how", "sure", "alright", "sick",
+				"watch", "dude", "fr", "tho", "true", "good", "whats", "sell",
+				"selling", "hard drive", "$10", "10 us dollars", "fee", "correct",
+            ];
+
+            // Generate a random number of words for the response (between 3 and 8 words)
+            const wordCount = Math.floor(Math.random() * 6) + 3;
+            let response = [];
+
+            // Pick random words from the list
+            for (let i = 0; i < wordCount; i++) {
+                const randomWord = words[Math.floor(Math.random() * words.length)];
+                response.push(randomWord);
+            }
+
+            // Join the words to form a random sentence
+            return response.join(" ") + ".";
+        }
+
+        function respond() {
+            // Get user input
+            const userInput = document.getElementById("userInput").value;
+            // Generate a random response
+            const randomResponse = getRandomResponse();
+            
+            // Display conversation in the chatbox
+            const chatBox = document.getElementById("chatBox");
+            chatBox.innerHTML += "<p><strong>You:</strong> " + userInput + "</p>";
+            chatBox.innerHTML += "<p><strong>FragsterFog512:</strong> " + randomResponse + "</p>";
+            
+            // Clear input
+            document.getElementById("userInput").value = "";
+        }
+    </script>
+</body>
+</html>
